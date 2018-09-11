@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+<script>
+// APIキーの設定とSDK初期化
+var ncmb = new NCMB("c8c2c2c8d06b4c42cf68fbdc6457476a50d459d0b31145ac6e5e002e0122d2e7","8849712cd4e2bd7cec95f092a029bff22fcccdd65d2ca851983e6e0dc9ee51dc");
+// 保存先クラスの作成
+var TestClass = ncmb.DataStore("TestClass");
+
+// 保存先クラスのインスタンスを生成
+var testClass = new TestClass();
+
+// 値を設定と保存
+testClass.set("message", "Hello, NCMB!")
+         .save()
+         .then(function(object){
+             // 保存に成功した場合の処理
+
+         })
+         .catch(function(err){
+             // 保存に失敗した場合の処理
+
+         });
+</script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+
+    document.addEventListener('show', function(event) {
+      var page = event.target;
+      var titleElement = document.querySelector('#toolbar-title');
+
+      if (page.matches('#first-page')) {
+        titleElement.innerHTML = 'My app - Page 1';
+      } else if (page.matches('#second-page')) {
+        titleElement.innerHTML = 'My app - Page 2';
+      }
+    });
+  </script>
+</head>
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center" id="toolbar-title"></div>
+    </ons-toolbar>
+    <ons-tabbar position="auto">
+      <ons-tab label="Tab 1" page="tab1.html" active>
+      </ons-tab>
+      <ons-tab label="Tab 2" page="tab2.html">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+
+  <ons-template id="tab1.html">
+    <ons-page id="first-page">
+      <p style="text-align: center;">
+        This is the first page.
+      </p>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="tab2.html">
+    <ons-page id="second-page">
+      <p style="text-align: center;">
+        This is the second page.
+      </p>
+    </ons-page>
+  </ons-template>
+</body>
+</html>
