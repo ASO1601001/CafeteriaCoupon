@@ -1,0 +1,26 @@
+<ons-navigator swipeable id="myNavigator" var="myNavigator" page="my_page.html">
+
+<ons-page id="my-page-page">
+  <script>
+    function make_account(){
+      document.querySelector('#myNavigator').pushPage('page1.html');
+    }
+  </script>
+
+  <div class="my-page-content">
+  <p class="attention">※マイページにアクセスするには<br>ログインしてください</p>
+  <div class="login">
+    <p>
+      <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+    </p>
+    <p>
+      <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+    </p>
+    <p style="margin-top: 30px;">
+      <ons-button onclick="login()">ログイン</ons-button>
+    </p>
+  </div>
+  <a id="push-btn" onclick="make_account();">新規登録はこちらから</a>
+  </div>
+</ons-page>
+</ons-navigator>

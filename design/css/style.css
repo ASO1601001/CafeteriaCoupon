@@ -1,0 +1,21 @@
+/**/
+.tab p{
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  margin: 0;
+  font-size:0.8em;
+  color:black;
+}
+.tab-icon{
+  width: 25px;
+}
+/* タブの画像と文字の色を薄くする*/
+.tab-active{
+  filter: contrast(5%);
+}
+
+/* タブの画像と文字を濃くする*/
+.deep{
+  filter: contrast(210%);
+}

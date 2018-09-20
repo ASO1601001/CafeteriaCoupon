@@ -1,0 +1,65 @@
+<ons-page id="page2">
+	<script>
+		function top_back(){
+        document.querySelector('#myNavigator').popPage();
+      };
+    function editSelects(event) {
+      document.getElementById('choose-sel').removeAttribute('modifier');
+    if (event.target.value == 'material' || event.target.value == 'underbar') {
+      document.getElementById('choose-sel').setAttribute('modifier', event.target.value);
+    } 
+    }
+  function addOption(event) {
+    const option = document.createElement('option');
+    var text = document.getElementById('optionLabel').value;
+    option.innerText = text;
+    text = '';
+    document.getElementById('dynamic-sel').appendChild(option);
+  }
+	</script>
+	<p id="attention_account">アカウント作成</p>
+	<div class="login">
+		<div class="Stu_or_Com">
+			<label class="left">
+     <ons-radio name="color" input-id="radio-1" checked></ons-radio>
+   </label>
+			<label for="radio-1" class="center">
+        学生
+    </label>
+
+			<label class="left">
+      <ons-radio name="color" input-id="radio-2"></ons-radio>
+    </label>
+			<label for="radio-2" class="center">
+        一般
+    </label>
+		</div>
+		<p>
+			<ons-input id="major" modifier="underbar" type="text" placeholder="学科" float></ons-input>
+			<ons-select id="choose-sel" onchange="editSelects(event)">
+				<option selected>学年</option>
+				<option value="basic">1</option>
+				<option value="material">2</option>
+				<option value="underbar">3</option>
+				<option value="underbar">4</option>
+			</ons-select>
+		</p>
+		<div class="sex">
+			<label class="left">
+     <ons-radio name="sex" input-id="radio-3" checked></ons-radio>
+   </label>
+			<label for="radio-3" class="center">
+        男
+    </label>
+
+			<label class="left">
+      <ons-radio name="sex" input-id="radio-4"></ons-radio>
+    </label>
+			<label for="radio-4" class="center">
+        女
+    </label>
+		</div>
+		<ons-button onclick="submit();">登録</ons-button>
+	</div>
+
+</ons-page>

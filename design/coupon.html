@@ -1,0 +1,127 @@
+<ons-page id="coupon-page">
+	<script>
+		$(function(){
+    $("#coupon-page .food").addClass("open active").next().slideDown();
+    //アコーディオンメニューの処理
+    $("#coupon-page .accordion").click(function(){
+     $(this).toggleClass("open active");
+     $(this).next().slideToggle();
+    });
+  });
+	</script>
+	<div class="content">
+		<!-- Food -->
+		<h3 class="accordion food">Food
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			<!--繰り返し表示-->
+			<div class="list-content">
+				<div class="new">
+					<p>new!</p>
+				</div>
+				<div class="img"><img src="img/ramen.jpg"></div>
+				<div class="name">name</div>
+				<div class="price">¥900</div>
+				<div class="coupon-btn">
+					<a href="#">クーポン</a>
+				</div>
+			</div>
+			<div class="list-content">
+				<div class="new">
+					<p>new!</p>
+				</div>
+			</div>
+			<div class="list-content">
+				<div class="img"><img src="img/ramen.jpg"></div>
+				<div class="name">name</div>
+				<div class="price">¥900</div>
+				<div class="coupon-btn">
+					<a href="#">クーポン</a>
+				</div>
+			</div>
+			<div class="list-content">
+				<div class="new">
+					<p>new!</p>
+				</div>
+				<div class="img"><img src="img/ramen.jpg"></div>
+				<div class="name">name</div>
+				<div class="price">¥900</div>
+				<div class="coupon-btn">
+					<a href="#">クーポン</a>
+				</div>
+			</div>
+			<div class="list-content">
+				<div class="new">
+					<p>new!</p>
+				</div>
+			</div>
+			<div class="list-content">
+				<div class="new">
+					<p>new!</p>
+				</div>
+			</div>
+			<div class="list-content">
+
+			</div>
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Food 終わり-->
+
+		<!-- Drink -->
+		<h3 class="accordion drink">Drink
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			こんちちは
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Drink 終わり -->
+
+		<!-- Daily lunch -->
+		<h3 class="accordion daily">Daily Lunch
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			こんちちは
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Daily lunch 終わり -->
+
+		<!-- Fried Food -->
+		<h3 class="accordion fried">Fried Food
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			こんちちは
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Fried Food 終わり -->
+
+		<!-- Regular Lunch -->
+		<h3 class="accordion regular">Regular Lunch
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			こんちちは
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Regular Lunch 終わり -->
+
+		<!-- Dessert -->
+		<h3 class="accordion dessert">Dessert
+			<span class="bow">∨</span>
+		</h3>
+		<!--折りたたみの中身-->
+		<div class="list">
+			こんちちは
+		</div>
+		<!--折りたたみの中身 終わり-->
+		<!-- Dessert 終わり -->
+	</div>
+</ons-page>
