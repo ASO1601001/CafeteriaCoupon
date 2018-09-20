@@ -1,0 +1,118 @@
+
+/*見出し*/
+#menu-page h3{
+  margin: 0;
+  line-height: 200%;
+  text-align: center;
+}
+
+#menu-page .active{
+ opacity: 0.5;
+}
+
+/*見出しの矢印*/
+#menu-page .bow{
+  position: absolute;
+  left: 90%;
+}
+
+/*折りたたみの中身*/
+#menu-page .list{
+  display:none;
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+}
+
+/*リストの繰り返し表示*/
+  #menu-page .list-content{
+    display: inline-block;
+    margin: 2%;
+    width: 44%;
+    height: 40%;
+    position: relative;
+    border: solid 1px black;
+  }
+
+  /*リストのnew*/
+  #menu-page .new{
+    position: absolute;
+    top:-9%;
+  }
+
+  /*リストの画像*/
+  #menu-page .list-content .img img{
+    position: absolute;
+    top: 14%;
+    left: 4%;
+    width:90%;
+  }
+  /*リストの商品名*/
+  #menu-page .list-content .name{
+    position: absolute;
+    top: 70%;
+  }
+  /*リストの値段*/
+  #menu-page .list-content .price{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+  }
+  /*リストのクーポン*/
+  #menu-page .list-content .coupon-btn{
+    position: absolute;
+    top: 84%;
+
+    width: 100%;
+  }
+  /*リストのクーポンのボタン*/
+  #menu-page .list-content .coupon-btn a{
+    text-decoration: none;
+    color: black;
+    font-size: 80%;
+    padding: 4% 33%;
+    background-color: rgb(255, 255, 30);
+    box-shadow: 1px 1px 1px 1px rgb(224, 224, 3)
+  }
+/*リストの繰り返し表示 終わり*/
+
+/* Food */
+ #menu-page .food{
+  background-color: orange;
+}
+/* Food 終わり*/
+
+/* Drink */
+  /*見出し*/
+   #menu-page .drink {
+    background-color: skyblue;
+  }
+/* Drink 終わり*/
+
+/* Daily lunch */
+  /*見出し*/
+  #menu-page .daily{
+    background-color:yellowgreen;
+  }
+/* Daily lunch 終わり*/
+
+/* Fried Food */
+  /*見出し*/
+  #menu-page .fried{
+    background-color: burlywood;
+  }
+/* Fried Food 終わり*/
+
+/* Regular Lunch */
+  /*見出し*/
+  #menu-page .regular{
+    background-color: rgb(134, 247, 82);
+  }
+/* Regular Lunch 終わり*/
+
+/* Dessert */
+  /*見出し*/
+  #menu-page .dessert{
+    background-color: rgb(240, 114, 223);
+  }
+/* Regular Lunch 終わり*/

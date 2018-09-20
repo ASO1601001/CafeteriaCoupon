@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/coupon.css">
+  <link rel="stylesheet" href="css/my_page.css">
+  
+  <script>
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+
+    document.addEventListener('show', function(event) {
+      var page = event.target;
+      var titleElement = document.querySelector('#toolbar-title');
+
+      if (page.matches('#menu-page')) {
+        titleElement.innerHTML = 'メニュー';
+      } else if (page.matches('#coupon-page')) {
+        titleElement.innerHTML = 'クーポン';
+      } else if(page.matches('#news-page')){
+        titleElement.innerHTML = 'お知らせ';
+      } else if(page.matches('#my-page-page')){
+        titleElement.innerHTML = 'マイページ';
+      } else if(page.matches('#page1')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="top_back();">マイページ</ons-back-button></div>';
+      } else if(page.matches('#page2')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="top_back();">戻る</ons-back-button></div>';
+      }
+      else if(page.matches('#to-new-user-page')){
+        titleElement.innerHTML = '初めての方へ';
+      }
+    });
+
+    $(function(){
+      //タブをタップした時に色を濃くする
+      $(".tab").click(function(){
+       $(this).find(".tab-active").toggleClass("deep");
+       $(".tab").not(this).find(".tab-active").removeClass("deep");
+      });
+    });
+  </script>
+</head>
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center" id="toolbar-title"></div>
+    </ons-toolbar>
+    <ons-tabbar position="auto">
+      <ons-tab id="tab1" class="tab" page="menu.html" active>
+        <div class="tab-active deep">
+        <img src="img/home.png" class="tab-icon">
+        <p>メニュー</p>
+        </div>
+      </ons-tab>
+      <ons-tab id="tab2" class="tab" page="coupon.html">
+        <div class="tab-active">
+        <img src="img/coupon.png" class="tab-icon">
+        <p>クーポン</p>
+        </div>
+      </ons-tab>
+      <ons-tab id="tab3" class="tab" page="news.html">
+        <div class="tab-active">
+        <img src="img/bell.png" class="tab-icon">
+        <p>お知らせ</p>
+        </div>
+      </ons-tab>
+      <ons-tab id="tab4" class="tab" page="my_page.html">
+        <div class="tab-active">
+        <img src="img/me.png" class="tab-icon">
+        <p>マイページ</p> 
+        </div>     
+      </ons-tab>
+      <ons-tab id="tab5" class="tab" page="to_new_user.html">
+        <div class="tab-active">
+        <img src="img/beginner.png" class="tab-icon">
+        <p>初めて</p>
+        </div>
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+</body>
+</html>
