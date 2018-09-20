@@ -1,0 +1,88 @@
+<ons-page id="first-page">
+  <p style="text-align: center;">
+    <div id="menu"></div>
+  </p>
+
+
+  <script>
+    document.addEventListener("init", function(event) {
+    // APIキーの設定とSDK初期化
+    var ncmb = new NCMB("c8c2c2c8d06b4c42cf68fbdc6457476a50d459d0b31145ac6e5e002e0122d2e7","8849712cd4e2bd7cec95f092a029bff22fcccdd65d2ca851983e6e0dc9ee51dc");
+    var menu = ncmb.DataStore("MenuTable");
+    var reader = new FileReader();
+
+    menu.fetchAll().then(function(results){
+      //データストアのレコード分、箱を作る
+      for (var i = 0; i < results.length; i++) {
+        document.getElementById("menu").innerHTML+='<div id="menu'+i+'"><img id="image'+i+'" src="" width="100" height="100"/></div>';
+      }
+      
+    }).catch(function(err){
+      console.log(err);
+    });
+    getMenu(0);
+      });
+
+    function getMenu(){
+      // APIキーの設定とSDK初期化
+      var ncmb = new NCMB("c8c2c2c8d06b4c42cf68fbdc6457476a50d459d0b31145ac6e5e002e0122d2e7","8849712cd4e2bd7cec95f092a029bff22fcccdd65d2ca851983e6e0dc9ee51dc");
+      var menu = ncmb.DataStore("MenuTable");
+      var category = ncmb.DataStore("CategoryTable");
+      var reader = new FileReader();
+      var count=0;
+      category.fetchAll().then(function(results){
+        console.log(results.length);
+        for (var i = 1; i <= results.length; i++) {
+          menu.equalTo("category_id", i).fetchAll().then(function(result){
+              
+            display(result,count,0);
+            count =count + result.length;
+          })
+        }
+      })
+    }
+
+    function display(results, count,menuid){
+              // APIキーの設定とSDK初期化
+
+
+      var ncmb = new NCMB("c8c2c2c8d06b4c42cf68fbdc6457476a50d459d0b31145ac6e5e002e0122d2e7","8849712cd4e2bd7cec95f092a029bff22fcccdd65d2ca851983e6e0dc9ee51dc");
+      var menu = ncmb.DataStore("MenuTable");
+      var category = ncmb.DataStore("CategoryTable");
+      var reader = new FileReader();
+        var dataUrl;
+        var fileName;
+        var object;
+        var image;
+        var ist;
+        object = results[menuid];
+
+        ist = new String(count);
+        image="menu"+ist.toString();
+
+        document.getElementById(image).innerHTML+=object.name + " " + object.price+ "円<br>";
+        
+        // ファイル名からファイルを取得
+        fileName = object.photo;
+        // ダウンロード（データ形式をblobを指定）
+        ncmb.File.download(fileName, "blob").then(function(blob) {
+        
+          // ファイルリーダーにデータを渡す
+          reader.readAsDataURL(blob);
+          reader.onload = function() {
+            dataUrl = reader.result;
+            
+            ist = new String(count);
+            image="image"+ist.toString();
+            document.getElementById(image).setAttribute('src', dataUrl);
+            display(results,count+1,menuid+1);
+          };
+
+
+        }).catch(function(err) {
+              console.error(err);
+        })
+
+    }
+      </script>
+    </ons-page>
