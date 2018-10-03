@@ -1,0 +1,50 @@
+
+/*my_pageの全体*/
+.my-page-content{
+  margin-top: 20%;
+}
+
+/*※の設定*/
+.attention{
+  margin-left:25%; 
+  font-size: 80%;
+}
+
+/*ログイン項目の設定*/
+.login{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.login ons-input{
+  width: 90%;
+  margin-bottom: 10%;
+}
+
+.login ons-button{
+  width: 90%;
+}
+
+#push-btn{
+  display: inline-block;
+  margin-left: 30%;
+  text-decoration: underline;
+}
+
+/*---------------page1-------------------------*/
+#attention_account{
+  font-size: 180%;
+}
+
+/*---------------page2-------------------------*/
+
+.Stu_or_Com{
+  margin-bottom: 10%;
+}
+.sex{
+  margin-bottom: 20%;
+}
+
+#major{
+  width: 50%;
+}

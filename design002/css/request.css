@@ -1,0 +1,10 @@
+/* This is a CSS file */
+#request{
+  text-align: center;
+}
+#request .mail{
+  margin-top: 20%;
+  margin-bottom: 14%;
+  font-size: 110%;
+}
+

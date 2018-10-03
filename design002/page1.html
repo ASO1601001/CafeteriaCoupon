@@ -1,0 +1,26 @@
+
+  <ons-page id="page1">
+    <style></style>
+    <script>
+      function top_back(){
+        document.querySelector('#myNavigator').popPage();
+      };
+
+      function next(){
+        document.querySelector('#myNavigator').pushPage('page2.html');
+      }
+    </script>
+    <p id="attention_account">アカウント作成</p>
+  <div class="login">
+    <p>
+      <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+    </p>
+    <p>
+      <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+    </p>
+    <p>
+      <ons-input id="password" modifier="underbar" type="password" placeholder="Password(確認用)" float></ons-input>
+    </p>
+    <ons-button onclick="next();">次へ</ons-button>
+  </div>
+  </ons-page>

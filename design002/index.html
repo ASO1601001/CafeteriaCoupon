@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<script src="components/loader.js"></script>
+	<script src="lib/onsenui/js/onsenui.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/coupon.css">
+	<link rel="stylesheet" href="css/coupon_detail.css">
+	<link rel="stylesheet" href="css/my_page.css">
+	<link rel="stylesheet" href="css/request.css">
+
+	<script>
+		ons.ready(function() {
+      checkForm();
+      count();
+      menu();
+      //クーポン詳細で使う
+    var menuID;
+    //カウントテーブルobj
+    var limit_obj;
+    //メニューテーブルobj
+    var menu_obj;
+    });
+
+    //APIキーの設定とSDKの初期化
+var appKey = "c8c2c2c8d06b4c42cf68fbdc6457476a50d459d0b31145ac6e5e002e0122d2e7";
+var clientKey = "8849712cd4e2bd7cec95f092a029bff22fcccdd65d2ca851983e6e0dc9ee51dc";
+var ncmb = new NCMB(appKey, clientKey);
+
+    document.addEventListener('show', function(event) {
+      var page = event.target;
+      var titleElement = document.querySelector('#toolbar-title');
+
+      if (page.matches('#menu-page')) {
+        titleElement.innerHTML = 'メニュー';
+      } else if (page.matches('#coupon-page')) {
+        titleElement.innerHTML = 'クーポン';
+      }else if (page.matches('#coupon_detail')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="coupon_back();">クーポン一覧</ons-back-button></div>';
+      } else if(page.matches('#news-page')){
+        titleElement.innerHTML = 'お知らせ';
+      } else if(page.matches('#my-page-page')){
+        titleElement.innerHTML = 'マイページ';
+      }else if(page.matches('#request')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="top_back();">ログイン</ons-back-button></div>';
+      }
+       else if(page.matches('#page1')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="top_back();">マイページ</ons-back-button></div>';
+      } else if(page.matches('#page2')){
+        titleElement.innerHTML = '<div class="left" style="text-align: left;"><ons-back-button onclick="top_back();">戻る</ons-back-button></div>';
+      }
+      else if(page.matches('#to-new-user-page')){
+        titleElement.innerHTML = '初めての方へ';
+      }
+    });
+
+//カウントテーブル取得
+function count(){
+  var categoryData = ncmb.DataStore("CountTable");
+  categoryData
+    .fetchAll()
+    .then(function (limit) {
+      limit_obj = JSON.parse(JSON.stringify(limit));
+    })
+    .catch(function (error) {
+      //全件検索に失敗した場合の処理
+      console.log("全件検索に失敗しました：\n" + error);
+    });
+}
+
+//メニューテーブル取得
+function menu(){
+  var menuData = ncmb.DataStore("MenuTable");
+  menuData
+  .fetchAll()
+  .then(function (menu){
+    menu_obj = JSON.parse(JSON.stringify(menu));
+  })
+  .catch(function(e){
+
+  });
+}
+
+//画像表示
+var	m = 0;
+	   reader.onload = function (e) {
+       ist = new String(m);
+       photo = "photo" + ist.toString();
+       var dataUrl = reader.result;
+       document.getElementById(photo).src = dataUrl;
+       ++m;
+     }
+	</script>
+</head>
+
+<body>
+	<ons-page>
+		<ons-toolbar>
+			<div class="center" id="toolbar-title"></div>
+		</ons-toolbar>
+		<ons-tabbar position="auto">
+			<ons-tab id="tab1" class="tab" page="menu.html" active>
+				<div class="tab-active">
+					<img src="img/home.png" class="tab-icon">
+					<p>メニュー</p>
+				</div>
+			</ons-tab>
+			<ons-tab id="tab2" class="tab" page="coupon.html">
+				<div class="tab-active">
+					<img src="img/coupon.png" class="tab-icon">
+					<p>クーポン</p>
+				</div>
+			</ons-tab>
+			<ons-tab id="tab3" class="tab" page="news.html">
+				<div class="tab-active">
+					<img src="img/bell.png" class="tab-icon">
+					<p>お知らせ</p>
+				</div>
+			</ons-tab>
+			<ons-tab id="tab4" class="tab" page="my_page.html">
+				<div class="tab-active">
+					<img src="img/me.png" class="tab-icon">
+					<p>マイページ</p>
+				</div>
+			</ons-tab>
+			<ons-tab id="tab5" class="tab" page="to_new_user.html">
+				<div class="tab-active">
+					<img src="img/beginner.png" class="tab-icon">
+					<p>初めて</p>
+				</div>
+			</ons-tab>
+		</ons-tabbar>
+	</ons-page>
+</body>
+
+</html>

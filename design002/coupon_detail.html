@@ -1,0 +1,63 @@
+<ons-page id="coupon_detail">
+	<style></style>
+	<script>
+		var user = "delightAso";
+		$(function(){
+        for(a=0; a < limit_obj.length; a++){
+          if(user == limit_obj[a].user_id && menuID == limit_obj[a].coupon_id){
+            var count = document.getElementById("count");
+            count.insertAdjacentHTML('afterbegin',limit_obj[a].count);
+          }
+        }
+    });
+
+function minus() {
+  //使用確認のalertを出す
+  if (window.confirm('使用しますか？')) {
+    var nokori = document.getElementById("count").textContent;
+     var nokori_num = parseInt(nokori);
+    //残り回数を判定
+    if (nokori == 0) {
+      alert("使用制限に達しました");
+    //回数が残っているなら
+    } else {
+      nokori_num = nokori_num - 1;
+      nokori_str = nokori_num.toString();
+      var menuID_str = menuID.toString();
+      //回数更新処理
+      var Count = ncmb.DataStore("CountTable");
+        Count.equalTo("coupon_id", menuID_str)
+        .equalTo("user_id",user)
+        .fetch()
+        .then(function(limit) {
+          limit.set("count",nokori_str);
+          return limit.update();
+        })
+        .then(function(limit){
+          location.reload();   
+        })
+        .catch(function (err) {
+          // エラー処理
+        });
+    }
+  }
+}
+
+    
+	function coupon_back(){
+    document.querySelector('#myNavigator1').popPage();
+  };
+	</script>
+	<img src="img/ramen.jpg">
+	<div class="attent">
+		<p>コーラ</p>
+		<p>2018/09/10~2018/10/10</p>
+		<p>放課後のみ
+			<div id="count"></div>回まで使用可能</p>
+		<p></p>
+	</div>
+	<div class="attent2">
+		<ons-button style="width:90%;text-align:center;" onclick="minus();">使用する</ons-button>
+		<p>※ボタンは必ずお店の人に押してもらってください。</p>
+	</div>
+</ons-page>

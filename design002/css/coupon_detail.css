@@ -1,0 +1,24 @@
+/* This is a CSS file */
+#coupon_detail img{
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.attent{
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.attent p{
+  margin: 0;
+  margin-bottom: 5%;
+}
+
+.attent2{
+  margin-top:5%;
+  margin-left: 10%; 
+}
+.attent2 p{
+  font-size: 0.8em;
+}

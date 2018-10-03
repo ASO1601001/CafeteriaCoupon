@@ -1,0 +1,12 @@
+/**/
+.tab p{
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  margin: 0;
+  font-size:0.8em;
+  color:black;
+}
+.tab-icon{
+  width: 25px;
+}
